@@ -1,64 +1,46 @@
 * {
-  font-family: 'Ubuntu', sans-serif;
-  margin: 0;
-  padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.media-vote {
-  display: table-cell;
-  vertical-align: top;
-  padding-right: 10px;
-}
-.media-vote .btn-score {
-  border: none;
-  background-color: transparent;
-  font-size: 1.3em;
-  padding: 3px 12px;
-  line-height: 0;
-  color: rgba(91, 192, 222, 0.52);
-}
-.media-vote .btn-score:hover, .media-vote .btn-score.active {
-  color: #5bc0de;
-  box-shadow: none;
-}
-.media-vote .btn-score:active {
-  color: #5BA2DE;
-  box-shadow: none;
-}
-.media-vote .btn-score:focus {
-  outline: none;
-}
-.media-vote .vote-score {
-  text-align: center;
-  font-size: 1.2em;
+.container {
+    margin: auto;
+    padding-top: 40px;
+    min-width: 300px;
+    max-width: 600px;
+    text-align: center;
 }
 
-.invisible {
-  visibility: hidden;
+.title {
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    padding: 15px;
+    background-color: #F6595D;
 }
 
-body {
-  padding-bottom: 60px;
+.button {
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    border: solid 2px #F6595D;
+    border-radius: 8px;
+    margin: 40px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    background-color: #F6595D;
 }
 
-.comment-box {
-  border-top:1px solid black;
-  padding: 5px;
+input {
+    display: block;
+    width: 300px;
+    height: 35px;
+    border: none;
+    border-bottom: 1px solid #F6595D;
 }
 
-#footer {
-  position: fixed;
-  bottom: 0px;
-  text-align: center;
-  width: 100%;
-  background-color: #f0f0f0;
-  border-top: 1px solid #c4c4c4;
-  padding-top: 10px;
-}
-
-#footer li {
-  display: inline;
-  margin: 40px 10px;
-  color: #999;
-  font-size: 13px;
+textarea:focus, input:focus{
+    outline: none;
 }

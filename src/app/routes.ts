@@ -3,6 +3,9 @@ import { Routes } from '@angular/router';
 import {DashbordContainerComponent} from "./dashboard/dashbord-container/dashbord-container.component";
 import {MasterContainerComponent} from "./master/mater-container/mater-container.component";
 import {MasterScoresComponent} from "./master/master-scores/master-scores.component";
+import {PlayerContainerComponent} from "./player/player-container/player-container.component";
+import {PlayerChooseComponent} from "./player/player-choose/player-choose.component";
+import {PlayerCreateComponent} from "./player/player-create/player-create.component";
 
 export const routes: Routes = [
     {
@@ -16,6 +19,20 @@ export const routes: Routes = [
             {
                 path: '',
                 component: MasterScoresComponent,
+            }
+        ]
+    },
+    {
+        path: 'player',
+        component: PlayerContainerComponent,
+        children: [
+            {
+                path: '',
+                component: PlayerChooseComponent
+            },
+            {
+                path: 'create',
+                component: PlayerCreateComponent
             }
         ]
     }

@@ -12,6 +12,9 @@ import {DashbordContainerComponent} from './dashboard/dashbord-container/dashbor
 import {MasterContainerComponent} from './master/mater-container/mater-container.component';
 import {MasterScoresComponent} from './master/master-scores/master-scores.component';
 import {HttpLink, HttpLinkModule} from "apollo-angular-link-http";
+import { PlayerContainerComponent } from './player/player-container/player-container.component';
+import { PlayerChooseComponent } from './player/player-choose/player-choose.component';
+import { PlayerCreateComponent } from './player/player-create/player-create.component';
 
 @NgModule({
     declarations: [
@@ -19,6 +22,9 @@ import {HttpLink, HttpLinkModule} from "apollo-angular-link-http";
         DashbordContainerComponent,
         MasterContainerComponent,
         MasterScoresComponent,
+        PlayerContainerComponent,
+        PlayerChooseComponent,
+        PlayerCreateComponent,
     ],
     entryComponents: [
         AppComponent

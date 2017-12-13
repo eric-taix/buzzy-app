@@ -1,0 +1,3 @@
+<img src="{{avatarUrl}}">
+<input #teamnam type="text" placeholder="Enter your team name" [ngModel]='model' (ngModelChange)='changed($event)'>
+<a class="button" (click)="create()">Play</a>

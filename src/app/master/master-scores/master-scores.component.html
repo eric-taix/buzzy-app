@@ -1,0 +1,10 @@
+<div class="container" *ngIf="buzzedTeam && buzzedTeam.length !== 1">
+    <div class="team" *ngFor="let team of teams">
+        <div class="avatar" ngClass="{{team.state}}"><span class="helper"></span><img src="{{team.avatarUrl}}"></div>
+        <div class="name">{{team.name}}<span class="score">{{team.points}}</span></div>
+    </div>
+</div>
+<div class="container magictime puffIn" *ngIf="buzzedTeam && buzzedTeam.length === 1">
+    <div class="buzzedAvatar"><img src="{{buzzedTeam[0].avatarUrl}}"></div>
+    <div class="buzzedName">{{buzzedTeam[0].name}}</div>
+</div>

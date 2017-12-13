@@ -1,0 +1,21 @@
+.container {
+    margin: auto;
+    padding-top: 40px;
+}
+
+.title {
+    text-align: center;
+    color: #F6595D;
+    font-size: 24px;
+    margin-top: 30px;
+}
+.button {
+    display: block;
+    padding: 10px;
+    border: solid 2px #F6595D;
+    border-radius: 8px;
+    margin: 40px;
+    text-decoration: none;
+    color: #F6595D;
+    text-align: center;
+}

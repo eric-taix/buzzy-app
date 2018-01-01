@@ -15,6 +15,10 @@ import {HttpLink, HttpLinkModule} from "apollo-angular-link-http";
 import { PlayerContainerComponent } from './player/player-container/player-container.component';
 import { PlayerChooseComponent } from './player/player-choose/player-choose.component';
 import { PlayerCreateComponent } from './player/player-create/player-create.component';
+import { PlayerPlayComponent } from './player/player-play/player-play.component';
+import {WebSocketLink} from "apollo-link-ws";
+import {split} from 'apollo-link';
+import {getMainDefinition} from 'apollo-utilities';
 
 @NgModule({
     declarations: [
@@ -25,6 +29,7 @@ import { PlayerCreateComponent } from './player/player-create/player-create.comp
         PlayerContainerComponent,
         PlayerChooseComponent,
         PlayerCreateComponent,
+        PlayerPlayComponent,
     ],
     entryComponents: [
         AppComponent
@@ -42,9 +47,18 @@ import { PlayerCreateComponent } from './player/player-create/player-create.comp
 export class AppModule {
 
     constructor(apollo: Apollo, httpLink: HttpLink) {
-        apollo.create({
-            link: httpLink.create({uri: '/graphql'}),
-            cache: new InMemoryCache()
-        })
+
+        const http = httpLink.create({uri: '/graphql'});
+        const ws = new WebSocketLink({uri: 'ws://' + window.location.host + '/subscription', options: { reconnect: true }});
+
+        const link = split(({ query }) => {
+                const { kind, operation } = getMainDefinition(query);
+                return kind === 'OperationDefinition' && operation === 'subscription';
+            },
+            ws,
+            http,
+        );
+
+        apollo.create({link: link, cache: new InMemoryCache()})
     }
 }

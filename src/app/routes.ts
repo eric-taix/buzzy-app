@@ -6,6 +6,7 @@ import {MasterScoresComponent} from "./master/master-scores/master-scores.compon
 import {PlayerContainerComponent} from "./player/player-container/player-container.component";
 import {PlayerChooseComponent} from "./player/player-choose/player-choose.component";
 import {PlayerCreateComponent} from "./player/player-create/player-create.component";
+import {PlayerPlayComponent} from "./player/player-play/player-play.component";
 
 export const routes: Routes = [
     {
@@ -35,5 +36,9 @@ export const routes: Routes = [
                 component: PlayerCreateComponent
             }
         ]
+    },
+    {
+        path: 'play/:teamId',
+        component: PlayerPlayComponent
     }
 ];

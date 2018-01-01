@@ -8,7 +8,7 @@
     border-radius: 20px;
     margin-top: 30px;
     text-decoration: none;
-    color: #F6595D;
+    color: #dddddd;
     text-align: center;
     width: 100%;
     font-size: 20px;
@@ -21,10 +21,9 @@
     margin-top: -5px;
     margin-left: -5px;
     border: 2px solid #F6595D;
-    background-color: white;
     border-radius: 50%;
     height: 60px;
-    background-color: white;
+    background-color: #292929;
     text-align: center;
 }
 
@@ -34,8 +33,11 @@
 
 .avatar img {
     vertical-align: middle;
-    height: 50px;
+    height: 54px;
+    border-radius: 50%;
 }
+
+
 
 .helper {
     display: inline-block;
@@ -45,7 +47,7 @@
 
 .score {
     float: right;
-    color: black;
+    color: #dddddd;
     font-weight: bold;
 }
 
@@ -59,4 +61,29 @@
     font-size: 28px;
     margin-top: 10px;
     color: #F6595D;
+}
+
+.buzzedAvatar img {
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 4px #F6595D;
+    cursor: hand;
+    transition: box-shadow 0.2s linear;
+    margin: 0.5em;
+}
+
+
+.unlock {
+    color: #F6595D;
+    text-decoration: none;
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+}
+
+.scores {
+    margin: 20px;
+}
+
+.team.WRONG {
+    opacity: 0.4;
 }

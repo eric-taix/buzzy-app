@@ -5,6 +5,7 @@ import 'rxjs/add/observable/fromEvent';
 import {Subject} from "rxjs/Subject";
 import gql from "graphql-tag";
 import {Apollo} from "apollo-angular";
+import {ActivatedRoute, Router} from "@angular/router";
 
 const CREATE_TEAM = gql`
     mutation CreateTeam($name: String!){
@@ -22,13 +23,13 @@ export class PlayerCreateComponent implements OnInit {
 
     private model: string;
     private modelChanged: Subject<string> = new Subject<string>();
-    private avatarUrl: String = "https://robohash.org/default";
+    private avatarUrl: String = "http://localhost/default??bgset=any&sets=set1,set2,set3,set4";
 
-    constructor(private apollo: Apollo) {
+    constructor(private apollo: Apollo, private router: Router, private route: ActivatedRoute) {
         this.modelChanged
             .debounceTime(300)
             .subscribe(model => {
-                this.avatarUrl = "https://robohash.org/" + (model ? model : "default");
+                this.avatarUrl = "http://" + window.location.host + "/avatar/" + (model ? model : "default") + "?bgset=any&sets=set1,set2,set3,set4";
                 this.model = model;
             });
     }
@@ -49,7 +50,7 @@ export class PlayerCreateComponent implements OnInit {
                 }
             })
             .subscribe(({ data }) => {
-                console.log('got data', data);
+                this.router.navigate(['/play', data.createTeam.id])
             },(error) => {
                 console.log('there was an error sending the query', error);
             });

@@ -1,6 +1,6 @@
 <div class="c-300-600">
     <div class="scores" *ngIf="buzzedTeam && buzzedTeam.length !== 1">
-        <a class="unlock" (click)="reset()">Unlock</a>
+        <a class="unlock" (click)="reset()" *ngIf="showButtons">Unlock</a>
         <div class="team" *ngFor="let team of teams" ngClass="{{team.state}}">
             <div class="avatar" ngClass="{{team.state}}"><span class="helper"></span><img src="{{team.avatarUrl}}">
             </div>
@@ -10,7 +10,7 @@
     <div class="magictime puffIn" *ngIf="buzzedTeam && buzzedTeam.length === 1">
         <div class="buzzedAvatar"><img src="{{buzzedTeam[0].avatarUrl}}"></div>
         <div class="buzzedName">{{buzzedTeam[0].name}}</div>
-        <div class="action">
+        <div class="action" *ngIf="showButtons">
             <a class="button-inline" (click)="correct()">Correct</a>
             <a class="button-inline" (click)="wrong()">No, no, no</a>
         </div>

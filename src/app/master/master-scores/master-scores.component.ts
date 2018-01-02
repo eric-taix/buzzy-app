@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import gql from "graphql-tag";
 import {Apollo, QueryRef} from "apollo-angular";
+import {ActivatedRoute} from "@angular/router";
 
 
 const TEAM_LIST = gql`
@@ -55,7 +56,7 @@ export class MasterScoresComponent implements OnInit {
 
     private teams: any;
     private buzzedTeam: any;
-
+    private showButtons = false;
     private teamsQuery: QueryRef<any>;
 
     private SOUND_CORRECT = new Howl({
@@ -69,7 +70,9 @@ export class MasterScoresComponent implements OnInit {
     });
 
 
-    constructor(private apollo: Apollo) {
+    constructor(private apollo: Apollo, private route: ActivatedRoute) {
+
+        this.showButtons = this.route.snapshot.queryParams["btn"] || false;
         this.teamsQuery = this.apollo
             .watchQuery<any>({
                 query: TEAM_LIST,

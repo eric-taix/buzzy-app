@@ -30,13 +30,19 @@ const SUBSCRIBE_TEAM_LIST = gql`
 
 const CORRECT = gql`
     mutation {
-        correct { id }
+        correct
     }    
 `;
 
 const WRONG = gql`
     mutation {
-        wrong { id }
+        wrong
+    }
+`;
+
+const RESET = gql`
+    mutation {
+        reset
     }
 `;
 
@@ -118,6 +124,12 @@ export class MasterScoresComponent implements OnInit {
         this.SOUND_WRONG.play();
         this.apollo.mutate({
             mutation: WRONG
+        }).subscribe();
+    }
+
+    reset() {
+        this.apollo.mutate({
+            mutation: RESET
         }).subscribe();
     }
 

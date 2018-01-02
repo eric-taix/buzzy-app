@@ -30,7 +30,7 @@ const SUBSCRIBE_TEAM = gql`
 
 const BUZZ_TEAM = gql`
     mutation Buzz($teamId: ID!){
-        buzz(teamId: $teamId) {id}
+        buzz(teamId: $teamId)
     }
 `;
 
